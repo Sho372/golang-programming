@@ -15,6 +15,7 @@ func main() {
 		}
 	}
 
+	printlnTest()
 
 }
 
@@ -24,4 +25,20 @@ func foo() {
 
 func bar() {
 	fmt.Println("and then we exited")
+}
+
+func printlnTest() {
+	// Use the returns
+	n, err := fmt.Println("Hello, world", 42, true)
+	fmt.Println(n)
+	fmt.Println(err)
+
+	// Throw away one of returns with _
+	n2, _ := fmt.Println("Hello, world", 42, true)
+	fmt.Println(n2)
+
+	// You can't throw away without _
+	//n3, e := fmt.Println("Hello, world", 42, true)
+	//fmt.Println(n3)
+
 }
