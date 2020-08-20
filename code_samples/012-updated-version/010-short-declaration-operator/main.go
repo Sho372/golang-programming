@@ -10,5 +10,6 @@ func main() {
 	y := 100 + 70
 	fmt.Println(y)
 	z := "Bond, James"
-	fmt.Print(z)
+	fmt.Println(z)
+	fmt.Printf("%T\n", z)
 }
