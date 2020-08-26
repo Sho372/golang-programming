@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main()  {
-	// While-loop doen't exsit in golang
+	// While-loop dose not
+	// exist in golang
 	x := 1
 	for x < 10 {
 		fmt.Println(x)
