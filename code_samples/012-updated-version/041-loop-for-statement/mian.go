@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main()  {
+func main() {
 	// While-loop dose not
 	// exist in golang
 	x := 1
