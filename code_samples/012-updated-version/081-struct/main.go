@@ -4,22 +4,22 @@ import "fmt"
 
 type person struct {
 	first string
-	last string
-	age int
+	last  string
+	age   int
 }
 
-func main()  {
+func main() {
 
 	p1 := person{
 		first: "James",
-		last: "Bond",
-		age: 32,
+		last:  "Bond",
+		age:   32,
 	}
 
 	p2 := person{
 		first: "Miss",
-		last: "Moneypenny",
-		age: 27,
+		last:  "Moneypenny",
+		age:   27,
 	}
 
 	fmt.Println(p1)

@@ -4,7 +4,7 @@ import "fmt"
 
 type person struct {
 	first string
-	last string
+	last  string
 }
 
 type secretAgent struct {
@@ -12,11 +12,11 @@ type secretAgent struct {
 	ltk bool
 }
 
-func (s secretAgent) speak()  {
+func (s secretAgent) speak() {
 	fmt.Println("I am", s.first, s.last)
 }
 
-func main()  {
+func main() {
 	sa1 := secretAgent{
 		person: person{
 			"James",

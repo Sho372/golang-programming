@@ -20,11 +20,11 @@ func (c circle) area() float64 {
 }
 
 // interface typeのshapeを引数で受け取る。 circle typeではない
-func info(s shape)  {
+func info(s shape) {
 	fmt.Println("area", s.area())
 }
 
-func main()  {
+func main() {
 
 	//c := circle{
 	//	radius: 5,

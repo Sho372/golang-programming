@@ -21,7 +21,7 @@ func info(s shape) {
 	fmt.Println("area", s.area())
 }
 
-func main()  {
+func main() {
 	c := circle{5}
 	info(&c)
 }

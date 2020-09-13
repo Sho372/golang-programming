@@ -5,9 +5,9 @@ import "fmt"
 var a = 100
 var b = 200
 
-func main()  {
+func main() {
 	//p := &a + 1; // no pointer arithmetic
-	q := &b;
+	q := &b
 	//fmt.Println(p)
 	fmt.Println(q)
 }

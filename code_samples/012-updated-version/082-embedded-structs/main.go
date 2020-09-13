@@ -4,18 +4,18 @@ import "fmt"
 
 type person struct {
 	first string
-	last string
-	age int
+	last  string
+	age   int
 }
 
 // extends person by embedding it
 type secretAgent struct {
-	person      // Embedded field (Anonymous field)
-	ltk bool
-	first string
+	person // Embedded field (Anonymous field)
+	ltk    bool
+	first  string
 }
 
-func main()  {
+func main() {
 	sa1 := secretAgent{
 		person: person{
 			first: "James",
@@ -27,8 +27,8 @@ func main()  {
 
 	p2 := person{
 		first: "Miss",
-		last: "Monneypenny",
-		age: 27,
+		last:  "Monneypenny",
+		age:   27,
 	}
 
 	fmt.Println(sa1)

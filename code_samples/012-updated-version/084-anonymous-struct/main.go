@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-func main()  {
+func main() {
 	// Anonymous struct
 	p1 := struct {
 		first string
-		last string
-		age int
+		last  string
+		age   int
 	}{
 		first: "James",
 		last:  "Bond",

@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 // no pointer
-func main()  {
+func main() {
 	x := 0
 	foo(x)
 	fmt.Println(x)
