@@ -12,6 +12,8 @@ type secretAgent struct {
 	ltk bool
 }
 
+type hotdog int
+
 // implementation of human interface
 func (s secretAgent) speak()  {
 	fmt.Println("I am", s.first, s.last)
@@ -27,7 +29,15 @@ type human interface {
 }
 
 func bar(h human)  {
-	fmt.Println("I was passed into bar", h)
+	switch h.(type) {
+	case person:
+		// assertion
+		fmt.Println("I was passed into barrrrrr", h.(person).first)
+	case secretAgent:
+		// assertion
+		fmt.Println("I was passed into barrrrrr", h.(secretAgent).first)
+		fmt.Println("I was passed into bar", h)
+	}
 }
 
 func main() {
@@ -62,4 +72,12 @@ func main() {
 	bar(sa1)
 	bar(sa2)
 	bar(p1)
+
+	// conversion
+	var x hotdog = 42
+	fmt.Println(x)
+	fmt.Printf("%T\n", x)
+	var y int = int(x)
+	fmt.Println(y)
+	fmt.Printf("%T\n", y)
 }
