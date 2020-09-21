@@ -29,6 +29,8 @@ func main()  {
 	}
 
 	now := time.Now()
+	zone, offset := now.Zone()
+	println(zone, offset)
 	nowUTC := now.UTC()
 
 	jst := time.FixedZone("Asia/Tokyo", int((9*time.Hour).Seconds()))
