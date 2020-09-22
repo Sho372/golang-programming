@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"time"
 )
 
 func usage(status int)  {
@@ -19,15 +20,23 @@ func main()  {
 	s := flag.String("s", "", "set time described by STRING")
 	flag.Parse()
 
-	if s != nil {
-		fmt.Println(*s)
+	fmt.Println("s:", s)
+	if *s != "" {
+		fmt.Println("*s", *s)
 		setDateStr = *s
 		setDate = true
 	}
+
+	if setDate {
+		parseDatetime(setDateStr)
+	}
 }
 
-func parseDatetime()  {
-	
+func parseDatetime(dateStr string) bool {
+	// TODO: define custom layout
+	yourDate, _ := time.Parse(time.Kitchen, dateStr)
+	fmt.Println(yourDate)
+	return true
 }
 
 func showDate() {
