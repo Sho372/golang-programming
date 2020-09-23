@@ -32,11 +32,13 @@ func main()  {
 	}
 }
 
-func parseDatetime(dateStr string) bool {
+
+func parseDatetime(setDateStr string) (bool, time.Time) {
 	// TODO: define custom layout
-	yourDate, _ := time.Parse(time.Kitchen, dateStr)
+	// 2020-09-23-21:00
+	yourDate, _ := time.Parse("2006-01-02-15:04", setDateStr)
 	fmt.Println(yourDate)
-	return true
+	return true, yourDate
 }
 
 func showDate() {
