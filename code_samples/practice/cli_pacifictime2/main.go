@@ -9,11 +9,19 @@ import (
 )
 
 const (
-	LAYOUT = "2006-01-02-15:04MST"
-	PDT = "PDT"
-	PST = "PST"
-	JST = "JST"
-	UTC = "UTC"
+	LAYOUT       = "2006-01-02-15:04 Z0700 MST"
+	PDT          = "PDT"
+	offsetPDT    = - 7 * 60 * 60
+	offsetPDTStr = "-0700"
+	PST          = "PST"
+	offsetPST    = - 8 * 60 * 60
+	offsetPSTStr = "-0800"
+	JST          = "JST"
+	offsetJST    = + 9 * 60 * 60
+	offsetJSTStr = "+0900"
+	UTC          = "UTC"
+	offsetUTC    = + 0 * 60 * 60
+	offsetUTCStr = "+0000"
 )
 
 func usage(status int) {
@@ -34,13 +42,16 @@ func main() {
 	switch *z {
 	case strings.ToLower(PDT):
 		setTimeZoneStr = PDT
-		pdtZone := time.FixedZone(PDT, -7*60*60)
-		setTime = time.Date(setTime.Year(), setTime.Month(), setTime.Day(), setTime.Hour(), setTime.Minute(), setTime.Second(), setTime.Nanosecond(), pdtZone)
-
+		pdtZone := time.FixedZone(PDT, offsetPDT)
+		setTime = changeZone(setTime, pdtZone)
 	case strings.ToLower(JST):
 		setTimeZoneStr = JST
+		jstZone := time.FixedZone(JST, offsetJST)
+		setTime = changeZone(setTime, jstZone)
 	case strings.ToLower(UTC):
 		setTimeZoneStr = UTC
+		utcZone := time.FixedZone(UTC, offsetUTC)
+		setTime = changeZone(setTime, utcZone)
 	}
 
 	if *s != "" {
@@ -50,7 +61,9 @@ func main() {
 
 	if setDate {
 		ok := true
+		//fmt.Println("Before", setTime)
 		setTime, ok = parseDatetime(setDateStr, setTimeZoneStr)
+		//fmt.Println("After", setTime)
 		if !ok {
 			os.Exit(1)
 		}
@@ -58,23 +71,27 @@ func main() {
 	showDate(setTime)
 }
 
+func changeZone(setTime time.Time, zone *time.Location) time.Time {
+	return time.Date(setTime.Year(), setTime.Month(), setTime.Day(), setTime.Hour(), setTime.Minute(), setTime.Second(), setTime.Nanosecond(), zone)
+}
+
 func parseDatetime(setDateStr string, setTimeZoneStr string) (time.Time, bool) {
 	switch setTimeZoneStr {
 	case PDT:
 		{
-			setDateStr = setDateStr + PDT
+			setDateStr = setDateStr + " " + offsetPDTStr + " " + PDT
 		}
 	case JST:
 		{
-			setDateStr = setDateStr + JST
+			setDateStr = setDateStr + " " + offsetJSTStr + " " + JST
 		}
 	case UTC:
 		{
-			setDateStr = setDateStr + UTC
+			setDateStr = setDateStr + " " + offsetUTCStr + " " + UTC
 		}
 	}
 
-	// Layout: 2020-09-23-21:00
+	// Layout: 2006-01-02-15:04 Z0700 MST
 	ok := true
 	t, err := time.Parse(LAYOUT, setDateStr)
 	if err != nil {
@@ -102,7 +119,7 @@ func showDate(setTime time.Time) {
 			}
 			utcTime := setTime.In(utcZone)
 			showFormattedDate(utcTime, utcZone.String())
-		
+
 			// JST
 			jstZone := time.FixedZone(JST, 9*60*60)
 			jstTime := setTime.In(jstZone)
@@ -151,6 +168,6 @@ func showDate(setTime time.Time) {
 	}
 }
 
-func showFormattedDate(setTime time.Time, timeZone string)  {
+func showFormattedDate(setTime time.Time, timeZone string) {
 	fmt.Println(setTime.Format("[MST] 2006-01-02 15:04"))
 }
