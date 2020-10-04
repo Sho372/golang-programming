@@ -4,7 +4,7 @@ import "fmt"
 
 type person struct {
 	first string
-	last string
+	last  string
 }
 
 type secretAgent struct {
@@ -15,12 +15,12 @@ type secretAgent struct {
 type hotdog int
 
 // implementation of human interface
-func (s secretAgent) speak()  {
+func (s secretAgent) speak() {
 	fmt.Println("I am", s.first, s.last)
 }
 
 // implementation of human interface
-func (p person) speak()  {
+func (p person) speak() {
 	fmt.Println("I am", p.first, p.last)
 }
 
@@ -28,7 +28,7 @@ type human interface {
 	speak()
 }
 
-func bar(h human)  {
+func bar(h human) {
 	switch h.(type) {
 	case person:
 		// assertion
@@ -59,7 +59,7 @@ func main() {
 
 	p1 := person{
 		first: "Dr.",
-		last: "Yes",
+		last:  "Yes",
 	}
 
 	fmt.Println(sa1)
