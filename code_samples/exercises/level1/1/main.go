@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+var x = 42;
+var y = "James Bond"
+var z = true;
+
 func main() {
 	// short declaration
 	x := 42
@@ -13,5 +17,8 @@ func main() {
 
 	// multiple print statements
 	fmt.Println(x, y, z)
+
+	s := fmt.Sprintf("%s is %d years old. \n", y, x)
+	fmt.Println(s)
 
 }

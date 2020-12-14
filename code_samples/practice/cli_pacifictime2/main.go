@@ -11,16 +11,16 @@ import (
 const (
 	LAYOUT       = "2006-01-02-15:04 Z0700 MST"
 	PDT          = "PDT"
-	offsetPDT    = - 7 * 60 * 60
+	offsetPDT    = -7 * 60 * 60
 	offsetPDTStr = "-0700"
 	PST          = "PST"
-	offsetPST    = - 8 * 60 * 60
+	offsetPST    = -8 * 60 * 60
 	offsetPSTStr = "-0800"
 	JST          = "JST"
-	offsetJST    = + 9 * 60 * 60
+	offsetJST    = +9 * 60 * 60
 	offsetJSTStr = "+0900"
 	UTC          = "UTC"
-	offsetUTC    = + 0 * 60 * 60
+	offsetUTC    = +0 * 60 * 60
 	offsetUTCStr = "+0000"
 )
 

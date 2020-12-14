@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func main()  {
+func main() {
 	// Subcommands
 	showCommand := flag.NewFlagSet("show", flag.ExitOnError)
 
@@ -33,8 +33,8 @@ func main()  {
 	println(zone, offset)
 	nowUTC := now.UTC()
 
-	jst := time.FixedZone("Asia/Tokyo", int((9*time.Hour).Seconds()))
-	pdt := time.FixedZone("PDT", int((-7*time.Hour).Seconds()))
+	jst := time.FixedZone("Asia/Tokyo", int((9 * time.Hour).Seconds()))
+	pdt := time.FixedZone("PDT", int((-7 * time.Hour).Seconds()))
 
 	if showCommand.Parsed() {
 		if len(os.Args) == 2 {

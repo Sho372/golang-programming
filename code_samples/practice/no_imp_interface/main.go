@@ -4,13 +4,13 @@ import "fmt"
 
 type pokemon struct {
 	name string
-	no int
+	no   int
 }
 
-func main()  {
+func main() {
 	p := pokemon{
 		name: "pikachu",
-		no: 25,
+		no:   25,
 	}
 	fmt.Println(p) // {pikachu 25}
 }

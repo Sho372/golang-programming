@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func main()  {
+func main() {
 
 	now := time.Now()
 	fmt.Println(now.Format(time.RFC3339))
@@ -13,8 +13,8 @@ func main()  {
 	nowUTC := now.UTC()
 	fmt.Println(nowUTC.Format(time.RFC3339))
 
-	jst := time.FixedZone("Asia/Tokyo", int((9*time.Hour).Seconds()))
-	pdt := time.FixedZone("PDT", int((-7*time.Hour).Seconds()))
+	jst := time.FixedZone("Asia/Tokyo", int((9 * time.Hour).Seconds()))
+	pdt := time.FixedZone("PDT", int((-7 * time.Hour).Seconds()))
 	dateJst := time.Date(2020, 9, 11, 3, 0, 0, 0, jst)
 	fmt.Println(dateJst.Format(time.RFC3339))
 	dateUTC := dateJst.UTC()
@@ -24,6 +24,5 @@ func main()  {
 	fmt.Println(datePdt.Format(time.RFC3339))
 	dateUTC2 := datePdt.UTC()
 	fmt.Println(dateUTC2.Format(time.RFC3339))
-
 
 }

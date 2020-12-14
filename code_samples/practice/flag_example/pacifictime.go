@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func main()  {
+func main() {
 	// Define a flag - name, default value, help message.
 	nFlag := flag.Int("n", 1234, "help message for flag n")
 	flag.Parse()
