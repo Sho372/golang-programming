@@ -40,4 +40,18 @@ func main() {
 	for i, v := range p2.favFlavors {
 		fmt.Println(i, v)
 	}
+
+	m := map[string]person{
+		p1.last: p1,
+		p2.last: p2,
+	}
+
+	for _, v := range m {
+		fmt.Println(v.first)
+		fmt.Println(v.last)
+		for i, val := range v.favFlavors {
+			fmt.Println(i, val)
+		}
+		fmt.Println("-----")
+	}
 }
