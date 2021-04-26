@@ -28,6 +28,7 @@ type human interface {
 	speak()
 }
 
+//型Switch
 func bar(h human) {
 	switch h.(type) {
 	case person:
